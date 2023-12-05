@@ -20,4 +20,30 @@ header {
     margin-bottom: 20px;
 }
 
-/* Adicione mais estilos conforme necessário */
+/* RODAPÉ*/
+
+.footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.footer p {
+    margin-bottom: 0; /* Remover margem inferior do parágrafo */
+}
+/* Adicionando estilo ao botão do LinkedIn */
+/* Estilizando o botão do LinkedIn */
+.btn-social {
+    font-size: 18px;
+    padding: 8px 16px; /* Ajustando o espaçamento interno */
+}
+
+.btn-social:hover {
+    background-color: #0077b5; /* Cor ao passar o mouse sobre o botão do LinkedIn */
+}
+
+
+
