@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Texto</title>
+  <script>
+    function alternarConversao() {
+      var textoEntrada = document.getElementById('textoEntrada').value;
+      var textoSaida = document.getElementById('textoSaida');
+
+      if (textoSaida.classList.contains('maiusculas')) {
+        textoSaida.value = textoEntrada.toLowerCase();
+        textoSaida.classList.remove('maiusculas');
+      } else {
+        textoSaida.value = textoEntrada.toUpperCase();
+        textoSaida.classList.add('maiusculas');
+      }
+    }
+  </script>
+  <style>
+    #textoEntrada, #textoSaida {
+      width: 100%;
+      height: 100px; /* Altura ajustável conforme necessário */
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Conversor de Texto</h1>
+
+  <label for="textoEntrada">Digite um texto:</label>
+  <textarea id="textoEntrada"></textarea>
+
+  <button onclick="alternarConversao()">Maiúsculas e Minúsculas</button>
+
+  <br>
+
+  <label for="textoSaida">Texto convertido:</label>
+  <textarea id="textoSaida" readonly></textarea>
+
+</body>
+</html>
