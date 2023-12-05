@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Conversor Real para Dólar - TPG</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="text-center">Conversor Real para Dólar</h1>
+            <p class="text-center">Digite o valor em reais:</p>
+        </header>
+
+        <section>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="input-group mb-3">
+                        <input type="number" id="valorReal" class="form-control" placeholder="Digite o valor em reais" aria-label="Valor em reais" aria-describedby="button-converter">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" id="button-converter">Converter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <h4 class="text-center">Valor em dólar:</h4>
+                    <p id="valorDolar" class="text-center">0</p>
+                    <div class="form-group">
+                        <label for="valorDolarUsuario" class="text-center">Informe o valor do dólar:</label>
+                        <input type="number" id="valorDolarUsuario" class="form-control" placeholder="Valor do dólar" aria-label="Valor do dólar">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-4">
+                    <a href="home.html" class="btn btn-secondary btn-block">Voltar para a Página Inicial</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('button-converter').addEventListener('click', function () {
+                const valorReal = document.getElementById('valorReal').value;
+                const valorDolarUsuario = document.getElementById('valorDolarUsuario').value;
+
+                if (!valorDolarUsuario) {
+                    alert('Por favor, informe o valor do dólar.');
+                    return;
+                }
+
+                const valorDolar = (valorReal / valorDolarUsuario).toFixed(2);
+                document.getElementById('valorDolar').innerText = `$${valorDolar}`;
+            });
+        });
+    </script>
+</body>
+</html>

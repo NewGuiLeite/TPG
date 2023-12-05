@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Conversor JPG para PDF - TPG</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="text-center">Conversor JPG para PDF</h1>
+            <p class="text-center">Selecione um arquivo JPG:</p>
+        </header>
+
+        <section>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <input type="file" id="inputJpg" accept=".jpg, .jpeg" class="form-control mb-3">
+                    <button id="convertButton" class="btn btn-success btn-block">Converter para PDF</button>
+                    <p id="resultMessage" class="text-center"></p>
+                    <a href="home.html" class="btn btn-secondary btn-block">Voltar para a Página Inicial</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('convertButton').addEventListener('click', function () {
+                const inputJpg = document.getElementById('inputJpg');
+                const jpgFile = inputJpg.files[0];
+
+                if (!jpgFile) {
+                    alert('Selecione um arquivo JPG.');
+                    return;
+                }
+
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    const imgData = e.target.result;
+
+                    const pdf = new jsPDF();
+                    pdf.addImage(imgData, 'JPEG', 10, 10, 190, 150);
+                    pdf.save('output.pdf');
+
+                    document.getElementById('resultMessage').innerText = 'Conversão realizada com sucesso!';
+                };
+
+                reader.readAsDataURL(jpgFile);
+            });
+        });
+    </script>
+</body>
+</html>

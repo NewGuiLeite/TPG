@@ -1,0 +1,23 @@
+body {
+    background-color: #343a40; /* Fundo preto */
+    color: #ffffff; /* Texto branco */
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+.btn {
+    margin-bottom: 15px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+/* Adicione mais estilos conforme necessário */
