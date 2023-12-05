@@ -20,6 +20,12 @@ header {
     margin-bottom: 20px;
 }
 
+.valor-dolar {
+    font-size: 30px; /* Ajuste o tamanho da fonte conforme necessário */
+    color: #007bff; /* Altere a cor conforme necessário */
+    font-weight: bold; /* Adicione negrito para torná-lo mais visível */
+}
+
 /* RODAPÉ*/
 
 .footer {
