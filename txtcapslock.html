@@ -4,6 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Conversor de Texto</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #343a40; /* Cor de fundo */
+      color: #495057; /* Cor do texto */
+      font-family: 'Arial', sans-serif;
+      margin: 20px; /* Margem ao redor do conteúdo */
+    }
+
+    h1 {
+      color: #007bff; /* Cor do cabeçalho */
+    }
+
+    label {
+      display: block;
+      margin-top: 10px; /* Margem acima das labels */
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px; /* Altura ajustável conforme necessário */
+      margin-bottom: 10px; /* Margem abaixo dos textareas */
+    }
+
+    button, a.btn {
+      background-color: #28a745; /* Cor de fundo do botão */
+      color: #fff; /* Cor do texto do botão */
+      padding: 10px; /* Espaçamento interno do botão */
+      border: none; /* Remover a borda do botão */
+      cursor: pointer; /* Cursor de apontador ao passar o mouse */
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none; /* Remover sublinhado padrão dos links */
+      margin-bottom: 10px; /* Margem abaixo do botão */
+    }
+
+    button:hover, a.btn:hover {
+      background-color: #218838; /* Cor de fundo do botão ao passar o mouse */
+    }
+
+    #textoSaida.maiusculas {
+      text-transform: uppercase; /* Transformar texto em maiúsculas se a classe 'maiusculas' estiver presente */
+    }
+  </style>
   <script>
     function alternarConversao() {
       var textoEntrada = document.getElementById('textoEntrada').value;
@@ -18,16 +63,10 @@
       }
     }
   </script>
-  <style>
-    #textoEntrada, #textoSaida {
-      width: 100%;
-      height: 100px; /* Altura ajustável conforme necessário */
-    }
-  </style>
 </head>
-<body>
+<body class="text-center">
 
-  <h1>Conversor de Texto</h1>
+  <h1 class="mb-4">Conversor de Texto</h1>
 
   <label for="textoEntrada">Digite um texto:</label>
   <textarea id="textoEntrada"></textarea>
@@ -38,6 +77,12 @@
 
   <label for="textoSaida">Texto convertido:</label>
   <textarea id="textoSaida" readonly></textarea>
+
+  <div class="row justify-content-center mt-3">
+    <div class="col-md-6">
+        <a href="index.html" class="btn btn-secondary btn-block">Voltar para a Página Inicial</a>
+    </div>
+  </div>
 
 </body>
 </html>
