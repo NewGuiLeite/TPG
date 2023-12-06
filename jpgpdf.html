@@ -29,34 +29,12 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-    <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('convertButton').addEventListener('click', function () {
-                const inputJpg = document.getElementById('inputJpg');
-                const jpgFile = inputJpg.files[0];
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.1/html2pdf.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.1/html2pdf.bundle.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 
-                if (!jpgFile) {
-                    alert('Selecione um arquivo JPG.');
-                    return;
-                }
 
-                const reader = new FileReader();
-
-                reader.onload = function (e) {
-                    const imgData = e.target.result;
-
-                    const pdf = new jsPDF();
-                    pdf.addImage(imgData, 'JPEG', 10, 10, 190, 150);
-                    pdf.save('output.pdf');
-
-                    document.getElementById('resultMessage').innerText = 'Conversão realizada com sucesso!';
-                };
-
-                reader.readAsDataURL(jpgFile);
-            });
-        });
-    </script>
+    <script src="script_pdf.js"></script>
 </body>
 </html>

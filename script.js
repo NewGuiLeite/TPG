@@ -30,4 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const valorDolar = (valorReal / valorDolarUsuario).toFixed(2);
         document.getElementById('valorDolar').innerText = `$${valorDolar}`;
     });
+
+
 });
