@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Seu Currículo</title>
+</head>
+
+<body>
+    <div class="container">
+        <form id="curriculumForm">
+            <!-- Dados Pessoais -->
+            <h2 class="mt-4">Informações Pessoais</h2>
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nascimento">Data de Nascimento:</label>
+                <input type="date" id="nascimento" name="nascimento" class="form-control" required>
+            </div>
+
+            <!-- Experiência Profissional -->
+            <h2 class="mt-4">Experiência Profissional</h2>
+            <div id="experiencias"></div>
+            <button type="button" onclick="adicionarExperiencia()" class="btn btn-secondary mt-3">Adicionar Experiência</button>
+
+            <!-- Formação Acadêmica -->
+            <h2 class="mt-4">Formação Acadêmica e Profissional</h2>
+            <div id="formacoes"></div>
+            <button type="button" onclick="adicionarFormacao()" class="btn btn-secondary mt-3">Adicionar Formação</button>
+
+            <!-- Idiomas e Informática -->
+            <h2 class="mt-4">Conhecimento em Línguas e Informática</h2>
+            <div class="form-group">
+                <label for="idiomas">Conhecimento em Línguas:</label>
+                <input type="text" id="idiomas" name="idiomas" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="informatica">Conhecimento em Informática:</label>
+                <input type="text" id="informatica" name="informatica" class="form-control" required>
+            </div>
+
+            <!-- Aptidões e Competências -->
+            <h2 class="mt-4">Aptidões e Competências</h2>
+            <div class="form-group">
+                <label for="aptidoes">Aptidões e Competências:</label>
+                <textarea id="aptidoes" name="aptidoes" class="form-control" rows="4" required></textarea>
+            </div>
+
+            <button type="button" onclick="gerarCurriculo()" class="btn btn-primary mt-3">Gerar Currículo em PDF</button>
+
+            <button type="button" onclick="voltarParaPrincipal()" class="btn btn-secondary mt-3 mx-auto d-block">Voltar para a Página Inicial</button>
+        </form>
+    </div>
+
+    <!-- Adicione os scripts conforme necessário -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.16/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.16/jspdf.plugin.autotable.min.js"></script>
+
+
+    <script src="curriculo.js"></script>
+</body>
+
+</html>

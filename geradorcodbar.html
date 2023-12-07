@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Gerador de Código de Barras</title>
+    <style>
+        body {
+            background-color: #f8f9fa; /* Cor de fundo padrão */
+        }
+
+        .container {
+            max-width: 600px; /* Largura máxima para tornar o layout mais amigável para dispositivos móveis */
+            margin-top: 50px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js"></script>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <script src="geradorCodigoBarras.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="mt-4">Gerador de Código de Barras</h2>
+
+        <!-- Configurações do Código de Barras -->
+        <div class="form-group">
+            <label for="tipo">Tipo:</label>
+            <input type="text" id="tipo" class="form-control" value="CODE128" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="tamanho">Tamanho:</label>
+            <input type="number" id="tamanho" class="form-control" value="2" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="rotacao">Rotação:</label>
+            <input type="number" id="rotacao" class="form-control" value="0" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="fonte">Fonte:</label>
+            <input type="text" id="fonte" class="form-control" value="Arial" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="altura">Altura:</label>
+            <input type="number" id="altura" class="form-control" value="30" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="codigo">Código:</label>
+            <input type="text" id="codigo" class="form-control" placeholder="Insira o código" required>
+        </div>
+
+        <!-- Botão Gerar Código -->
+        <button type="button" onclick="gerarCodigoDeBarras()" class="btn btn-primary">Gerar Código de Barras</button>
+
+        <!-- Resultado do Código de Barras -->
+        <div class="form-group mt-4">
+            <label for="resultado">Resultado:</label>
+            <canvas id="resultadoCanvas"></canvas>
+        </div>
+
+        <!-- Botão para Imprimir e Salvar em PDF -->
+        <button type="button" onclick="imprimirESalvarPDF()" class="btn btn-success">Imprimir e Salvar em PDF</button>
+
+        <!-- Botão para Voltar para a Página Inicial -->
+        <a href="index.html" class="btn btn-secondary mt-3">Voltar para a Página Inicial</a>
+    </div>
+</body>
+
+</html>
