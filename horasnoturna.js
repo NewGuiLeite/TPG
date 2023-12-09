@@ -1,44 +1,65 @@
-function calcularHorasNoturnas() {
-    // Obter os valores do formulário
-    const salario = parseFloat(document.getElementById('salario').value) || 0;
-    const horasNormais = parseFloat(document.getElementById('horasNormais').value) || 0;
-    const horasNoturnas = parseFloat(document.getElementById('horasNoturnas').value) || 0;
-    const adicionalNoturno = parseFloat(document.getElementById('adicionalNoturno').value) || 0;
+function mostrarCampos() {
+    const adicionalDefinido = document.getElementById('adicionalDefinido').value;
+    const camposAdicional = document.getElementById('camposAdicional');
+    const valorPorcentagem = document.getElementById('valorPorcentagem');
 
-    // Calcular horas noturnas
-    const horasNoturnasReais = calcularHorasNoturnasReais(horasNoturnas);
-
-    // Calcular adicional noturno
-    const adicionalNoturnoValor = calcularAdicionalNoturno(salario, adicionalNoturno, horasNoturnasReais);
-
-    // Calcular salário total
-    const salarioTotal = salario + adicionalNoturnoValor;
-
-    // Exibir resultados
-    exibirResultado(horasNormais, horasNoturnasReais, adicionalNoturnoValor, salarioTotal);
+    if (adicionalDefinido === 'sim') {
+        camposAdicional.style.display = 'block';
+        valorPorcentagem.setAttribute('required', true);
+    } else {
+        camposAdicional.style.display = 'none';
+        valorPorcentagem.removeAttribute('required');
+    }
 }
 
-function calcularHorasNoturnasReais(horasNoturnas) {
-    // Implementar lógica para calcular horas noturnas reais
-    // Exemplo: assumindo que 1 hora noturna equivale a 52 minutos e 30 segundos
-    const fatorReducao = 60 / 52.5;
-    const horasNoturnasReais = horasNoturnas * fatorReducao;
-    return horasNoturnasReais.toFixed(2);
+function mostrarCamposHoraExtra() {
+    const horaExtraNoturna = document.getElementById('horaExtraNoturna').value;
+    const camposHoraExtra = document.getElementById('camposHoraExtra');
+    const totalHorasExtra = document.getElementById('totalHorasExtra');
+
+    if (horaExtraNoturna === 'sim') {
+        camposHoraExtra.style.display = 'block';
+        totalHorasExtra.setAttribute('required', true);
+    } else {
+        camposHoraExtra.style.display = 'none';
+        totalHorasExtra.removeAttribute('required');
+    }
 }
 
-function calcularAdicionalNoturno(salario, adicionalNoturno, horasNoturnas) {
-    // Implementar lógica para calcular adicional noturno
-    return (salario * adicionalNoturno * horasNoturnas).toFixed(2);
+function calcularAdicionalNoturno() {
+    // Lógica de cálculo aqui
+
+    // Exemplo de exibição do resultado
+    exibirResultado('R$ 9.14');
 }
 
-function exibirResultado(horasNormais, horasNoturnas, adicionalNoturno, salarioTotal) {
+function exibirResultado(adicionalNoturnoValor) {
     const resultadoDiv = document.getElementById('resultado');
     resultadoDiv.innerHTML = `
-        <strong>Resultado:</strong><br>
-        Horas Normais: ${horasNormais} horas<br>
-        Horas Noturnas: ${horasNoturnas} horas<br>
-        Adicional Noturno: R$ ${adicionalNoturno}<br>
-        Salário Total: R$ ${salarioTotal}
+        <div class="alert alert-success" role="alert">
+            <strong>Resultado:</strong><br>
+            Adicional Noturno: ${adicionalNoturnoValor}
+        </div>
     `;
     resultadoDiv.style.display = 'block';
 }
+
+function limparValores() {
+    // Limpar valores do formulário
+    document.getElementById('salarioBruto').value = '';
+    document.getElementById('horasTrabalhadas').value = '';
+    document.getElementById('totalHorasNoturnas').value = '';
+    document.getElementById('adicionalDefinido').value = 'nao';
+    document.getElementById('valorPorcentagem').value = '';
+    document.getElementById('horaExtraNoturna').value = 'nao';
+    document.getElementById('totalHorasExtra').value = '';
+
+    // Limpar resultado
+    document.getElementById('resultado').style.display = 'none';
+    document.getElementById('camposAdicional').style.display = 'none';
+    document.getElementById('camposHoraExtra').style.display = 'none';
+}
+
+// Adiciona eventos aos elementos que requerem a exibição de campos condicionais
+document.getElementById('adicionalDefinido').addEventListener('change', mostrarCampos);
+document.getElementById('horaExtraNoturna').addEventListener('change', mostrarCamposHoraExtra);

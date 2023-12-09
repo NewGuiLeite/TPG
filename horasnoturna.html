@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Horas Noturnas</title>
+    <title>Calculadora de Adicional Noturno</title>
     <!-- Bootstrap CSS (você pode modificar o link para usar o Bootstrap do seu projeto) -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Estilos personalizados -->
@@ -19,46 +19,71 @@
             margin-top: 50px;
         }
 
-        .number-button {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin: 5px;
+        .form-group {
+            margin-bottom: 20px;
         }
 
-        /* Adicione aqui o seu estilo personalizado */
+        label {
+            display: block;
+        }
+
+        #resultado {
+            margin-top: 20px;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h2 class="text-center">Calculadora de Horas Noturnas</h2>
+        <h2 class="text-center">Calculadora de Adicional Noturno</h2>
         <form>
             <div class="form-group">
-                <label for="salario">Salário por hora (R$):</label>
-                <input type="number" class="form-control" id="salario" placeholder="Digite o salário">
+                <label for="salarioBruto">Salário Bruto (R$):</label>
+                <input type="number" class="form-control" id="salarioBruto" placeholder="Digite o salário bruto">
             </div>
 
             <div class="form-group">
-                <label for="horasNormais">Horas Normais:</label>
-                <input type="number" class="form-control" id="horasNormais" placeholder="Digite as horas normais">
+                <label for="horasTrabalhadas">Horas trabalhadas por mês:</label>
+                <input type="number" class="form-control" id="horasTrabalhadas" placeholder="Digite as horas trabalhadas por mês">
             </div>
 
             <div class="form-group">
-                <label for="horasNoturnas">Horas Noturnas:</label>
-                <input type="number" class="form-control" id="horasNoturnas" placeholder="Digite as horas noturnas">
+                <label for="totalHorasNoturnas">Total de Horas Noturnas sem Hora Extra:</label>
+                <input type="number" class="form-control" id="totalHorasNoturnas" placeholder="Digite o total de horas noturnas">
             </div>
 
             <div class="form-group">
-                <label for="adicionalNoturno">Percentual Adicional Noturno (%):</label>
-                <input type="number" class="form-control" id="adicionalNoturno" placeholder="Digite o adicional noturno">
+                <label for="adicionalDefinido">Adicional Noturno foi definido por acordo ou é Trabalhador Rural?</label>
+                <select class="form-control" id="adicionalDefinido">
+                    <option value="nao">Não</option>
+                    <option value="sim">Sim</option>
+                </select>
             </div>
 
-            <button type="button" class="btn btn-primary" onclick="calcularHorasNoturnas()">Calcular</button>
+            <div class="form-group" id="camposAdicional" style="display: none;">
+                <label for="valorPorcentagem">Valor da Hora Noturna ou Porcentagem do Adicional Noturno:</label>
+                <input type="number" class="form-control" id="valorPorcentagem" placeholder="Digite o valor da hora noturna ou a porcentagem do adicional noturno">
+            </div>
+
+            <div class="form-group">
+                <label for="horaExtraNoturna">Tem Hora Extra Noturna?</label>
+                <select class="form-control" id="horaExtraNoturna">
+                    <option value="nao">Não</option>
+                    <option value="sim">Sim</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="camposHoraExtra" style="display: none;">
+                <label for="totalHorasExtra">Total de Horas Extra Noturnas (minutos):</label>
+                <input type="number" class="form-control" id="totalHorasExtra" placeholder="Digite o total de horas extra noturnas">
+            </div>
+
+            <button type="button" class="btn btn-primary" onclick="calcularAdicionalNoturno()">Calcular</button>
+            <button type="button" class="btn btn-secondary" onclick="limparValores()">Limpar Valores</button>
         </form>
 
         <!-- Resultado -->
-        <div id="resultado" style="display: none; margin-top: 20px;"></div>
+        <div id="resultado" style="display: none;"></div>
 
         <!-- Adição do botão para voltar para a página inicial -->
         <p id="resultMessage" class="text-center"></p>
@@ -69,8 +94,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- JsBarcode para gerar códigos de barras -->
-    <script src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js"></script>
     <!-- Script personalizado -->
     <script src="horasnoturna.js"></script>
 </body>

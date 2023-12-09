@@ -6,20 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <title>Gerador de Código de Barras</title>
-    <style>
-        body {
-            background-color: #f8f9fa; /* Cor de fundo padrão */
-        }
-
-        .container {
-            max-width: 600px; /* Largura máxima para tornar o layout mais amigável para dispositivos móveis */
-            margin-top: 50px;
-        }
-    </style>
     <script src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js"></script>
     <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
-    <script src="geradorCodigoBarras.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.7.0/dist/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+        }
+
+    </style>
 </head>
+
 
 <body>
     <div class="container">
@@ -28,27 +36,21 @@
         <!-- Configurações do Código de Barras -->
         <div class="form-group">
             <label for="tipo">Tipo:</label>
-            <input type="text" id="tipo" class="form-control" value="CODE128" readonly>
+            <select id="tipo" class="form-control">
+                <option value="CODE128">Code 128</option>
+                <option value="CODE39">Code 39</option>
+                <!-- Adicione mais opções conforme necessário -->
+            </select>
         </div>
 
         <div class="form-group">
             <label for="tamanho">Tamanho:</label>
-            <input type="number" id="tamanho" class="form-control" value="2" readonly>
-        </div>
-
-        <div class="form-group">
-            <label for="rotacao">Rotação:</label>
-            <input type="number" id="rotacao" class="form-control" value="0" readonly>
-        </div>
-
-        <div class="form-group">
-            <label for="fonte">Fonte:</label>
-            <input type="text" id="fonte" class="form-control" value="Arial" readonly>
+            <input type="number" id="tamanho" class="form-control" value="1">
         </div>
 
         <div class="form-group">
             <label for="altura">Altura:</label>
-            <input type="number" id="altura" class="form-control" value="30" readonly>
+            <input type="number" id="altura" class="form-control" value="50">
         </div>
 
         <div class="form-group">
@@ -65,12 +67,17 @@
             <canvas id="resultadoCanvas"></canvas>
         </div>
 
-        <!-- Botão para Imprimir e Salvar em PDF -->
-        <button type="button" onclick="imprimirESalvarPDF()" class="btn btn-success">Imprimir e Salvar em PDF</button>
+        <!-- Botão para Salvar como PDF -->
+        <button type="button" onclick="salvarComoPDF()" class="btn btn-success">Salvar como PDF</button>
+
+        <!-- Botão para Salvar como PNG -->
+        <button type="button" onclick="salvarComoPNG()" class="btn btn-info">Salvar como PNG</button>
 
         <!-- Botão para Voltar para a Página Inicial -->
         <a href="index.html" class="btn btn-secondary mt-3">Voltar para a Página Inicial</a>
     </div>
+
+    <script src="geradorCodigoBarras.js"></script>
 </body>
 
 </html>

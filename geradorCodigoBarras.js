@@ -1,8 +1,6 @@
 function gerarCodigoDeBarras() {
     const tipo = document.getElementById('tipo').value;
     const tamanho = document.getElementById('tamanho').value;
-    const rotacao = document.getElementById('rotacao').value;
-    const fonte = document.getElementById('fonte').value;
     const altura = document.getElementById('altura').value;
     const codigo = document.getElementById('codigo').value;
 
@@ -16,11 +14,12 @@ function gerarCodigoDeBarras() {
         textMargin: 0,
         width: tamanho,
         height: altura,
-        margin: 10
+        margin: 10,
+        textAlign: 'center'
     });
 }
 
-function imprimirESalvarPDF() {
+function salvarComoPDF() {
     const resultadoCanvas = document.getElementById('resultadoCanvas');
     
     html2pdf(resultadoCanvas, {
@@ -35,4 +34,15 @@ function imprimirESalvarPDF() {
         downloadLink.download = 'codigo_de_barras.pdf';
         downloadLink.click();
     });
+}
+
+
+
+function salvarComoPNG() {
+    const resultadoCanvas = document.getElementById('resultadoCanvas');
+    
+    const link = document.createElement('a');
+    link.href = resultadoCanvas.toDataURL('image/png');
+    link.download = 'codigo_de_barras.png';
+    link.click();
 }
