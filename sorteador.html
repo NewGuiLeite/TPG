@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- Cabeçalho da página -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sorteador de Números</title>
+  <!-- Estilo da página -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Script do Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7341100982858254"
-     crossorigin="anonymous"></script>
-     <meta name="google-adsense-account" content="ca-pub-7341100982858254">
-     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BKCBEPW7VK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BKCBEPW7VK');
-</script>
-
+  <!-- Script do Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7341100982858254"
+    crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-7341100982858254">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BKCBEPW7VK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BKCBEPW7VK');
+  </script>
+  <!-- Estilo personalizado da página -->
   <style>
     body {
       background-color: #343a40;
@@ -30,6 +32,7 @@
       border-radius: 10px;
       padding: 20px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      color: white;
     }
 
     h1 {
@@ -44,13 +47,14 @@
     button.custom-btn {
       background-color: #007bff;
       color: #ffffff;
-      padding: 15px; /* Ajuste conforme necessário */
-      font-size: 18px; /* Ajuste conforme necessário */
+      padding: 15px;
+      font-size: 18px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s;
-      width: 50%; /* Faz o botão ocupar toda a largura do container */
+      width: 50%;
+      margin-top: 20px;
     }
 
     button.custom-btn:hover {
@@ -63,60 +67,89 @@
       margin-top: 20px;
     }
 
-   /* Estilo para destacar o número sorteado */
-.destacado {
-  font-size: 100px;
-  color: #28a745; /* Cor verde para destacar */
-  display: block; /* Torna a div um bloco */
-  margin-top: 1px; /* Adiciona um espaço superior para separar do texto acima */
-}
-.Ndestacado {
-  font-size: 40px;
-  color: #0056b3; /* Cor verde para destacar */
-  display: block; /* Torna a div um bloco */
-  margin-top: 1px; /* Adiciona um espaço superior para separar do texto acima */
-}
+    /* Estilo para destacar o número sorteado */
+    .destacado {
+      font-size: 100px;
+      color: #28a745;
+      display: block;
+      margin-top: 1px;
+    }
 
+    .Ndestacado {
+      font-size: 40px;
+      color: #0056b3;
+      display: block;
+      margin-top: 1px;
+    }
+
+    /* Estilo para o bloco da data */
+    #dataSorteio {
+      color: #ffffff;
+      font-size: 16px;
+      margin-top: 10px;
+    }
   </style>
 </head>
+
 <body class="text-center">
+ 
+  <!-- Título do sorteio -->
+  <h1 class="mb-4">Sorteador de Números Aleatórios</h1>
 
   <div class="container">
-    <h1 class="mb-4">Sorteador de Números Aleatórios</h1>
+    <!-- Mensagem explicativa -->
+    <div class="alert alert-info" role="alert">
+      <strong>Bem-vindo ao Sorteador de Números!</strong><br>
+      Aqui você pode fazer o sorteio de números aleatórios para diversos fins, como sorteios, jogos, ou qualquer outra necessidade.
+      Insira o nome do sorteio (opcional), defina o intervalo desejado e clique em "Sortear" para obter um número aleatório.
+    </div>
 
-    <label for="nomeSorteio">Nome do Sorteio (opcional)</label>
-    <input type="text" id="nomeSorteio" placeholder="Nome do Sorteio" class="form-control mb-2">
+    <!-- Campo para inserir o nome do sorteio -->
+    <label for="nomeSorteio">Nome do Sorteio (opcional, até 50 caracteres)</label>
+    <input type="text" id="nomeSorteio" placeholder="Nome do Sorteio" class="form-control mb-2" maxlength="30">
 
+    <!-- Campos para definir o intervalo de números a serem sorteados -->
     <label for="intervaloInicio">Sortear número entre</label>
     <input type="number" id="intervaloInicio" value="0" min="0" class="mr-2">
 
     <label for="intervaloFim">e</label>
     <input type="number" id="intervaloFim" value="10" min="0" class="ml-2">
 
+    <!-- Botão para realizar o sorteio -->
     <button onclick="sortear()" class="custom-btn">Sortear</button>
 
+    <!-- Exibição do resultado do sorteio -->
     <div id="resultadoSorteio"></div>
+
+    <!-- Bloco para a data do sorteio -->
+    <div id="dataSorteio"></div>
   </div>
 
+  <!-- Botão para voltar para a página inicial -->
   <div class="row justify-content-center mt-3">
     <div class="col-md-6">
       <a href="index.html" class="btn btn-secondary btn-block">Voltar para a Página Inicial</a>
     </div>
   </div>
 
+  <!-- Script JavaScript para a funcionalidade do sorteio -->
   <script>
     function sortear() {
+      // Obter valores dos campos
       var nomeSorteio = document.getElementById('nomeSorteio').value.trim();
       var inicio = parseInt(document.getElementById('intervaloInicio').value);
       var fim = parseInt(document.getElementById('intervaloFim').value);
       
+      // Verificar se o intervalo é válido
       if (inicio >= fim) {
         alert("O intervalo de início deve ser menor que o intervalo de fim.");
         return;
       }
 
+      // Gerar número aleatório dentro do intervalo
       var numeroSorteado = Math.floor(Math.random() * (fim - inicio + 1)) + inicio;
 
+      // Exibir o resultado do sorteio
       var resultadoSorteio = document.getElementById('resultadoSorteio');
       resultadoSorteio.innerHTML = "";
 
@@ -125,6 +158,11 @@
       }
       resultadoSorteio.innerHTML += "<div>Intervalo: de " + inicio + " a " + fim + "</div>";
       resultadoSorteio.innerHTML += "<div>Número Sorteado: <span class='destacado'>" + numeroSorteado + "</span></div>";
+
+      // Adicionar a data atual ao resultado
+      var dataAtual = new Date();
+      var dataSorteio = document.getElementById('dataSorteio');
+      dataSorteio.innerHTML = "Data do Sorteio: " + dataAtual.toLocaleString();
     }
   </script>
 

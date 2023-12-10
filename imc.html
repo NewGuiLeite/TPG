@@ -44,7 +44,7 @@
 
             <div class="form-group">
                 <label for="altura">Informe sua altura (metro e cm, separados por vírgula):</label>
-                <input type="text" class="form-control" id="altura" placeholder="Digite sua altura em metros e cm">
+                <input type="text" class="form-control" id="altura" placeholder="Digite sua altura em metros">
             </div>
 
             <button type="button" class="btn btn-primary" onclick="calcularIMC()">Calcular</button>
@@ -54,10 +54,54 @@
         <!-- Resultado -->
         <div id="resultado" style="display: none;"></div>
 
+        <!-- Mensagem sobre a faixa saudável -->
+        <div class="alert alert-warning mt-4" role="alert">
+            <strong>Importante:</strong> O resultado diz se você está dentro de uma faixa saudável ou não. Caso esteja abaixo ou acima do recomendado, procure ajuda especializada para receber acompanhamento.
+        </div>
+
+        <!-- Tabela de Classificação do IMC -->
+        <table class="table table-bordered table-dark mt-4">
+            <thead>
+                <tr>
+                    <th>IMC</th>
+                    <th>CLASSIFICAÇÃO</th>
+                    <th>OBESIDADE (GRAU)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Menor que 18,5</td>
+                    <td>Magreza</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Entre 18,5 e 24,9</td>
+                    <td>Normal</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Entre 25,0 e 29,9</td>
+                    <td>Sobrepeso</td>
+                    <td>I</td>
+                </tr>
+                <tr>
+                    <td>Entre 30,0 e 39,9</td>
+                    <td>Obesidade</td>
+                    <td>II</td>
+                </tr>
+                <tr>
+                    <td>Maior que 40,0</td>
+                    <td>Obesidade Grave</td>
+                    <td>III</td>
+                </tr>
+            </tbody>
+        </table>
+
         <!-- Texto de explicação -->
         <div class="alert alert-info mt-4" role="alert">
             <strong>O que é IMC?</strong><br>
-            O IMC é reconhecido como padrão internacional para avaliar o grau de sobrepeso e obesidade. É calculado dividindo o peso (em kg) pela altura ao quadrado (em metros).<br>
+            O IMC é reconhecido como padrão internacional para avaliar o grau de sobrepeso e obesidade. É calculado
+            dividindo o peso (em kg) pela altura ao quadrado (em metros).<br>
             <strong>Exemplo:</strong> IMC = 80 kg ÷ (1,80 m × 1,80 m) = 24,69 kg/m² (Peso ideal)
         </div>
 

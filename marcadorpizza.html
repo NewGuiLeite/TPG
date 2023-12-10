@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marcador de Pizza</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-       <!-- Script do Google AdSense -->
+    <!-- Script do Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7341100982858254"
     crossorigin="anonymous"></script>
     <meta name="google-adsense-account" content="ca-pub-7341100982858254">
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BKCBEPW7VK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BKCBEPW7VK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-BKCBEPW7VK');
+    </script>
 
-  gtag('config', 'G-BKCBEPW7VK');
-</script>
-
- 
     <style>
         body {
             background-color: #343a40;
@@ -63,7 +62,7 @@
         }
 
         .btn-mais {
-            background-color: #6c757d; /* Cinza para o botão de mais */
+            background-color: #6c757d;
             color: #ffffff;
         }
 
@@ -72,7 +71,7 @@
         }
 
         .btn-menos {
-            background-color: #dc3545; /* Vermelho para o botão de menos */
+            background-color: #dc3545;
             color: #ffffff;
         }
 
@@ -87,10 +86,15 @@
         }
     </style>
 </head>
+
 <body class="text-center">
 
     <div class="container">
         <h1 class="mb-4">Marcador de Pizza</h1>
+
+        <p>
+            Bem-vindo ao Marcador de Pizza! Aqui, você pode adicionar pessoas e registrar quantas pizzas cada uma vai consumir. Use os botões "+" e "-" para ajustar a quantidade.
+        </p>
 
         <div id="pessoas-list"></div>
 
@@ -109,70 +113,74 @@
     </div>
 
     <script>
-        var pessoas = [];
+        <!-- Seu código JavaScript -->
 
-        function adicionarPessoa() {
-            var nomePessoa = document.getElementById('nomePessoa').value.trim();
-            if (nomePessoa !== "") {
-                pessoas.push({ nome: nomePessoa, quantidade: 0 });
-                atualizarListaPessoas();
-                document.getElementById('nomePessoa').value = "";
-            }
-        }
+    var pessoas = [];
 
-        function alterarQuantidade(index, quantidade) {
-            pessoas[index].quantidade += quantidade;
+    function adicionarPessoa() {
+        var nomePessoa = document.getElementById('nomePessoa').value.trim();
+        if (nomePessoa !== "") {
+            pessoas.push({ nome: nomePessoa, quantidade: 0 });
             atualizarListaPessoas();
+            document.getElementById('nomePessoa').value = "";
         }
+    }
 
-        function atualizarListaPessoas() {
-            var pessoasList = document.getElementById('pessoas-list');
-            pessoasList.innerHTML = "";
+    function alterarQuantidade(index, quantidade) {
+        pessoas[index].quantidade += quantidade;
+        atualizarListaPessoas();
+    }
 
-            for (var i = 0; i < pessoas.length; i++) {
-                var pessoaContainer = document.createElement('div');
-                pessoaContainer.classList.add('pessoa-container');
+    function atualizarListaPessoas() {
+        var pessoasList = document.getElementById('pessoas-list');
+        pessoasList.innerHTML = "";
 
-                var btnPessoa = document.createElement('button');
-                btnPessoa.textContent = pessoas[i].nome;
-                btnPessoa.classList.add('custom-btn');
-                btnPessoa.onclick = function (index) {
-                    return function () {
-                        alterarQuantidade(index, 1);
-                    };
-                }(i);
+        for (var i = 0; i < pessoas.length; i++) {
+            var pessoaContainer = document.createElement('div');
+            pessoaContainer.classList.add('pessoa-container');
 
-                var btnMais = document.createElement('button');
-                btnMais.textContent = "+";
-                btnMais.classList.add('custom-btn', 'btn-mais');
-                btnMais.onclick = function (index) {
-                    return function () {
-                        alterarQuantidade(index, 1);
-                    };
-                }(i);
+            var btnPessoa = document.createElement('button');
+            btnPessoa.textContent = pessoas[i].nome;
+            btnPessoa.classList.add('custom-btn');
+            btnPessoa.onclick = function (index) {
+                return function () {
+                    alterarQuantidade(index, 1);
+                };
+            }(i);
 
-                var btnMenos = document.createElement('button');
-                btnMenos.textContent = "-";
-                btnMenos.classList.add('custom-btn', 'btn-menos');
-                btnMenos.onclick = function (index) {
-                    return function () {
-                        alterarQuantidade(index, -1);
-                    };
-                }(i);
+            var btnMais = document.createElement('button');
+            btnMais.textContent = "+";
+            btnMais.classList.add('custom-btn', 'btn-mais');
+            btnMais.onclick = function (index) {
+                return function () {
+                    alterarQuantidade(index, 1);
+                };
+            }(i);
 
-                var quantidadePessoa = document.createElement('span');
-                quantidadePessoa.textContent = "Quantidade de Pizzas: " + pessoas[i].quantidade;
-                quantidadePessoa.classList.add('quantidade');
+            var btnMenos = document.createElement('button');
+            btnMenos.textContent = "-";
+            btnMenos.classList.add('custom-btn', 'btn-menos');
+            btnMenos.onclick = function (index) {
+                return function () {
+                    alterarQuantidade(index, -1);
+                };
+            }(i);
 
-                pessoaContainer.appendChild(btnPessoa);
-                pessoaContainer.appendChild(btnMais);
-                pessoaContainer.appendChild(btnMenos);
-                pessoaContainer.appendChild(quantidadePessoa);
+            var quantidadePessoa = document.createElement('span');
+            quantidadePessoa.textContent = "QTD Pizzas: " + pessoas[i].quantidade;
+            quantidadePessoa.classList.add('quantidade');
 
-                pessoasList.appendChild(pessoaContainer);
-            }
+            pessoaContainer.appendChild(btnPessoa);
+            pessoaContainer.appendChild(btnMais);
+            pessoaContainer.appendChild(btnMenos);
+            pessoaContainer.appendChild(quantidadePessoa);
+
+            pessoasList.appendChild(pessoaContainer);
         }
-    </script>
+    }
+</script>
+
+
 
 </body>
 </html>
