@@ -129,12 +129,11 @@
 <!-- Script do seu arquivo cookie.js -->
 <script src="cookie.js"></script>
 
-<!-- Banner de Cookies -->
-<div id="cookieConsent" class="cookie-banner">
-    <p>Nós usamos cookies</p>
-    <p>Eles são usados para aprimorar a sua experiência. Ao fechar este banner ou continuar na página, você concorda com o uso de cookies.</p>
-    <button onclick="acceptAllCookies()">PERMITIR TODOS OS COOKIES</button>
-    <button onclick="declineCookies()">RECUSAR</button>
+<!-- Seção de aceitação de cookies -->
+<div id="cookieConsent" class="fixed-bottom text-center" style="background-color: #343a40; color: #ffffff; padding: 10px 0;">
+    <p>Nós usamos cookies. Eles são usados para aprimorar a sua experiência. Ao fechar este banner ou continuar na página, você concorda com o uso de cookies.</p>
+    <button class="btn btn-success btn-sm" onclick="acceptAllCookies()">Permitir Todos os Cookies</button>
+    <button class="btn btn-danger btn-sm" onclick="declineCookies()">Recusar</button>
 </div>
 
 
