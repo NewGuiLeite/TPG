@@ -37,9 +37,7 @@ header {
     background-color: #343a40; /* Cor de fundo preto */
     color: #ffffff; /* Cor do texto branco */
     padding: 20px 0; /* Preenchimento superior e inferior */
-    position: fixed; /* Fixa o rodapé na parte inferior da tela */
     width: 100%; /* Largura total da tela */
-    bottom: 0; /* Alinha o rodapé na parte inferior */
 }
 
 /* Ajuste do parágrafo no rodapé */
@@ -59,34 +57,24 @@ header {
 }
 
 
+        /* Adicione o CSS do menu aqui */
+        .navbar {
+            background-color: #343a40;
+            padding: 1px 0;
+        }
 
-.custom-navbar .navbar {
-    background-color: #343a40; /* Cor de fundo preto */
-}
+        .navbar-brand {
+            color: #ffffff;
+            font-size: 24px;
+        }
 
-.custom-navbar .navbar-brand {
-    font-size: 19px; /* Tamanho da fonte do logotipo */
-    padding: 10px; /* Ajuste no preenchimento */
-    margin-top: -20px; /* Margem superior negativa para ajuste vertical */
-    line-height: 40px; /* Centralizar verticalmente */
-}
+        .navbar-nav {
+            margin-left: auto;
+        }
 
-.custom-navbar .navbar-nav .nav-link {
-    padding: 15px 20px; /* Espaçamento interno */
-    font-size: 16px; /* Tamanho da fonte dos links */
-    margin-top: -20px; /* Margem superior negativa para ajuste vertical */
-    line-height: 40px; /* Centralizar verticalmente */
-}
+        .nav-link {
+            color: #ffffff;
+            margin-right: 20px;
+        }
 
-.custom-navbar .navbar-toggler {
-    border-color: #ffffff; /* Cor da borda do botão de toogle */
-}
-
-.custom-navbar .navbar-toggler-icon {
-    background-color: #ffffff; /* Cor do ícone do botão de toogle */
-}
-
-.custom-navbar {
-    height: 40px; /* Altere o valor conforme necessário */
-}
-
+        
