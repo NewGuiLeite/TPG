@@ -1,55 +1,92 @@
+/* Definições gerais do corpo da página */
 body {
-    background-color: #343a40; /* Fundo preto */
-    color: #ffffff; /* Texto branco */
-    font-family: 'Arial', sans-serif;
+    background-color: #343a40; /* Cor de fundo preto */
+    color: #ffffff; /* Cor do texto branco */
+    font-family: 'Arial', sans-serif; /* Fonte padrão */
 }
 
+/* Ajuste de margem para os containers */
 .container {
-    margin-top: 50px;
+    margin-top: 20px; /* Reduzindo a margem superior */
 }
 
+/* Estilo do cabeçalho */
 header {
     margin-bottom: 30px;
 }
 
+/* Estilo dos botões */
 .btn {
     margin-bottom: 15px;
 }
 
+/* Estilo para grupos de entrada (input) */
 .input-group {
     margin-bottom: 20px;
 }
 
+/* Estilo para a classe 'valor-dolar' */
 .valor-dolar {
-    font-size: 30px; /* Ajuste o tamanho da fonte conforme necessário */
-    color: #007bff; /* Altere a cor conforme necessário */
-    font-weight: bold; /* Adicione negrito para torná-lo mais visível */
+    font-size: 30px; /* Tamanho da fonte */
+    color: #007bff; /* Cor azul */
+    font-weight: bold; /* Texto em negrito */
 }
 
-/* RODAPÉ*/
-
+/* Estilo do rodapé */
 .footer {
-    background-color: #343a40;
-    color: #ffffff;
-    padding: 20px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    background-color: #343a40; /* Cor de fundo preto */
+    color: #ffffff; /* Cor do texto branco */
+    padding: 20px 0; /* Preenchimento superior e inferior */
+    position: fixed; /* Fixa o rodapé na parte inferior da tela */
+    width: 100%; /* Largura total da tela */
+    bottom: 0; /* Alinha o rodapé na parte inferior */
 }
 
+/* Ajuste do parágrafo no rodapé */
 .footer p {
-    margin-bottom: 0; /* Remover margem inferior do parágrafo */
-}
-/* Adicionando estilo ao botão do LinkedIn */
-/* Estilizando o botão do LinkedIn */
-.btn-social {
-    font-size: 18px;
-    padding: 8px 16px; /* Ajustando o espaçamento interno */
+    margin-bottom: 0; /* Remove a margem inferior do parágrafo */
 }
 
+/* Estilo para botões sociais */
+.btn-social {
+    font-size: 18px; /* Tamanho da fonte */
+    padding: 8px 16px; /* Espaçamento interno */
+}
+
+/* Efeito ao passar o mouse sobre os botões sociais */
 .btn-social:hover {
     background-color: #0077b5; /* Cor ao passar o mouse sobre o botão do LinkedIn */
 }
 
 
+
+.custom-navbar .navbar {
+    background-color: #343a40; /* Cor de fundo preto */
+}
+
+.custom-navbar .navbar-brand {
+    font-size: 19px; /* Tamanho da fonte do logotipo */
+    padding: 10px; /* Ajuste no preenchimento */
+    margin-top: -20px; /* Margem superior negativa para ajuste vertical */
+    line-height: 40px; /* Centralizar verticalmente */
+}
+
+.custom-navbar .navbar-nav .nav-link {
+    padding: 15px 20px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte dos links */
+    margin-top: -20px; /* Margem superior negativa para ajuste vertical */
+    line-height: 40px; /* Centralizar verticalmente */
+}
+
+.custom-navbar .navbar-toggler {
+    border-color: #ffffff; /* Cor da borda do botão de toogle */
+}
+
+.custom-navbar .navbar-toggler-icon {
+    background-color: #ffffff; /* Cor do ícone do botão de toogle */
+}
+
+.custom-navbar {
+    height: 40px; /* Altere o valor conforme necessário */
+}
 
