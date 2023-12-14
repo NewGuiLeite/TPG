@@ -64,21 +64,38 @@
             color: #ff0000;
             font-weight: bold;
         }
+
+        /* Adicione este bloco de estilos para ajustar a largura máxima da barra de pesquisa */
+        .custom-search-form {
+            max-width: 800px; /* Ajuste o valor conforme necessário para aumentar ou diminuir a largura */
+            width: 100%; /* Garante que a barra de pesquisa seja responsiva */
+        }
+
+        /* Adicione margem inferior ao botão "Voltar à Página Principal" */
+        .btn-primary {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
-        <h2>Busca CEP</h2>
-        <label for="cep">CEP:</label>
-        <input type="text" id="cep" placeholder="Digite o CEP" maxlength="9" oninput="formatarCEP(this)">
+    <!-- ... Seu código anterior ... -->
 
-        <button onclick="buscarCEP()">Buscar</button>
-        <button onclick="limparCampos()">Limpar</button>
+<div class="container">
+    <h2>Busca CEP</h2>
+    <label for="cep">CEP:</label>
+    <input type="text" id="cep" placeholder="Digite o CEP" maxlength="9" oninput="formatarCEP(this)">
 
-        <div id="result"></div>
-    </div>
+    <button onclick="buscarCEP()">Buscar</button>
+    <button onclick="limparCampos()">Limpar</button>
+
+    <div id="result"></div>
+
+    <button onclick="window.location.href='index.html'" class="btn btn-primary" style="margin-top: 20px;">Voltar à Página Principal</button>
+</div>
+
+<!-- ... Seu código posterior ... -->
 
     <script>
         function formatarCEP(input) {
