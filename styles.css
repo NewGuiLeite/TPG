@@ -32,12 +32,12 @@ header {
     font-weight: bold; /* Texto em negrito */
 }
 
-/* Estilo do rodapé */
 .footer {
-    background-color: #343a40; /* Cor de fundo preto */
-    color: #ffffff; /* Cor do texto branco */
-    padding: 20px 0; /* Preenchimento superior e inferior */
-    width: 100%; /* Largura total da tela */
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px 0;
+    position: relative; /* Altere para 'relative' */
+    width: 100%;
 }
 
 /* Ajuste do parágrafo no rodapé */
