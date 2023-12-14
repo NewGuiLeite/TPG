@@ -65,16 +65,17 @@
 
     <script>
         function gerarNumeros() {
-            const quantidadeNumeros = document.getElementById("quantidadeNumeros").value;
-            const numerosGerados = [];
+    const quantidadeNumeros = document.getElementById("quantidadeNumeros").value;
+    const numerosGerados = new Set(); // Usando um conjunto para garantir valores únicos
 
-            for (let i = 0; i < quantidadeNumeros; i++) {
-                const numero = Math.floor(Math.random() * 60) + 1; // Gera números de 1 a 60
-                numerosGerados.push(numero);
-            }
+    while (numerosGerados.size < quantidadeNumeros) {
+        const numero = Math.floor(Math.random() * 60) + 1;
+        numerosGerados.add(numero);
+    }
 
-            exibirNumeros(numerosGerados);
-        }
+    exibirNumeros(Array.from(numerosGerados));
+}
+
 
         function exibirNumeros(numeros) {
             const numerosGeradosDiv = document.getElementById("numerosGerados");
