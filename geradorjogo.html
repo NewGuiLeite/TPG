@@ -64,16 +64,20 @@
     </div>
 
     <script>
-        function gerarNumeros() {
+       function gerarNumeros() {
     const quantidadeNumeros = document.getElementById("quantidadeNumeros").value;
-    const numerosGerados = new Set(); // Usando um conjunto para garantir valores únicos
+    const numerosGerados = [];
 
-    while (numerosGerados.size < quantidadeNumeros) {
+    while (numerosGerados.length < quantidadeNumeros) {
         const numero = Math.floor(Math.random() * 60) + 1;
-        numerosGerados.add(numero);
+
+        // Verifica se o número já foi gerado antes de adicioná-lo à lista
+        if (!numerosGerados.includes(numero)) {
+            numerosGerados.push(numero);
+        }
     }
 
-    exibirNumeros(Array.from(numerosGerados));
+    exibirNumeros(numerosGerados);
 }
 
 
