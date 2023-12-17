@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Busca CEP</title>
 
+    <!-- Adicionando o Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -36,13 +39,7 @@
         }
 
         button {
-            background-color: #007bff;
-            color: #ffffff;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-right: 8px;
+            margin-top: 10px; /* Adicionado espaço acima dos botões */
         }
 
         #result {
@@ -65,51 +62,48 @@
             font-weight: bold;
         }
 
-        /* Adicione este bloco de estilos para ajustar a largura máxima da barra de pesquisa */
-        .custom-search-form {
-            max-width: 800px; /* Ajuste o valor conforme necessário para aumentar ou diminuir a largura */
-            width: 100%; /* Garante que a barra de pesquisa seja responsiva */
-        }
-
-        /* Adicione margem inferior ao botão "Voltar à Página Principal" */
-        .btn-primary {
-            margin-bottom: 20px;
-        }
+        /* Removido o bloco de estilos que não é mais necessário */
     </style>
 </head>
 
 <body>
 
-    <!-- ... Seu código anterior ... -->
+    <div class="container">
+        <h2 class="text-center">Busca CEP</h2>
+        <p class="text-center">Informe o CEP desejado para obter informações sobre o endereço.</p>
 
-<div class="container">
-    <h2>Busca CEP</h2>
-    <label for="cep">CEP:</label>
-    <input type="text" id="cep" placeholder="Digite o CEP" maxlength="9" oninput="formatarCEP(this)">
+        <form>
+            <div class="form-group">
+                <label for="cep">CEP:</label>
+                <input type="text" class="form-control" id="cep" placeholder="Digite o CEP" maxlength="9" oninput="formatarCEP(this)">
+            </div>
 
-    <button onclick="buscarCEP()">Buscar</button>
-    <button onclick="limparCampos()">Limpar</button>
+            <button type="button" onclick="buscarCEP()" class="btn btn-primary btn-block">Buscar</button>
+            <button type="button" onclick="limparCampos()" class="btn btn-secondary btn-block">Limpar</button>
+        </form>
 
-    <div id="result"></div>
+        <div id="result"></div>
 
-    <button onclick="window.location.href='index.html'" class="btn btn-primary" style="margin-top: 20px;">Voltar à Página Principal</button>
+        <button onclick="window.location.href='index.html'" class="btn btn-primary btn-block mt-3">Voltar à Página Principal</button>
+    </div>
 
+    <!-- Adicionando o Bootstrap e o script de anúncios ao final da página -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7341100982858254"
-     crossorigin="anonymous"></script>
-<!-- RODAPE -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-7341100982858254"
-     data-ad-slot="6223196792"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+        crossorigin="anonymous"></script>
 
-</div>
-
-<!-- ... Seu código posterior ... -->
+    <!-- RODAPE -->
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-7341100982858254"
+        data-ad-slot="6223196792"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 
     <script>
         function formatarCEP(input) {
@@ -144,7 +138,7 @@
                 resultDiv.innerHTML = '<p class="cep-not-found">CEP não encontrado. Verifique o CEP digitado.</p>';
             } else {
                 resultDiv.innerHTML = `
-                    <h3>Resultado:</h3>
+                    <h3 class="mt-3">Resultado:</h3>
                     <p><strong>CEP:</strong> ${data.cep}</p>
                     <p><strong>Logradouro:</strong> ${data.logradouro}</p>
                     <p><strong>Bairro:</strong> ${data.bairro}</p>
