@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -28,16 +29,6 @@
             margin-top: 50px;
         }
 
-        .alert-info {
-            background-color: #007bff;
-            color: #ffffff;
-            border: none;
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
-        }
-
         label {
             display: block;
             margin-bottom: 8px;
@@ -51,12 +42,14 @@
         }
 
         button {
-            width: 100%; /* Defini a largura do botão como 100% para ocupar toda a largura disponível */
+            width: 100%; /* Alterado para ocupar 100% da largura */
+            background-color: #007bff;
+            color: #ffffff;
             padding: 10px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            margin-bottom: 8px; /* Adicionei uma margem inferior para separar os botões */
+            margin-bottom: 8px; /* Adicionado margem inferior */
         }
 
         #result {
@@ -74,8 +67,20 @@
             font-weight: bold;
         }
 
+        #result .cep-not-found {
+            color: #ff0000;
+            font-weight: bold;
+        }
+
+        /* Adicione este bloco de estilos para ajustar a largura máxima da barra de pesquisa */
+        .custom-search-form {
+            max-width: 800px; /* Ajuste o valor conforme necessário para aumentar ou diminuir a largura */
+            width: 100%; /* Garante que a barra de pesquisa seja responsiva */
+        }
+
+        /* Adicione margem inferior ao botão "Voltar à Página Principal" */
         .btn-primary {
-            width: 100%; /* Defini a largura do botão como 100% para ocupar toda a largura disponível */
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -88,7 +93,7 @@
             Insira o CEP na caixa abaixo, clique no botão e veja os detalhes! Lembre-se, as informações estão atualizadas com os dados do ViaCEP.
         </div>
 
-        <h2 class="text-center">Busca CEP</h2>
+        <h2>Busca CEP</h2>
         <label for="cep">CEP:</label>
         <input type="text" id="cep" class="form-control" placeholder="Digite o CEP" maxlength="9" oninput="formatarCEP(this)">
 
@@ -97,74 +102,72 @@
 
         <div id="result"></div>
 
-        <button class="btn btn-primary" onclick="window.location.href='index.html'">Voltar à Página Principal</button>
+        <button class="btn btn-primary" onclick="window.location.href='index.html'" style="margin-top: 20px;">Voltar à Página Principal</button>
     </div>
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7341100982858254"
-        crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7341100982858254" crossorigin="anonymous"></script>
     <!-- RODAPE -->
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7341100982858254" data-ad-slot="6223196792"
-        data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7341100982858254" data-ad-slot="6223196792" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
 
-<script>
-    function formatarCEP(input) {
-        input.value = input.value.replace(/\D/g, ''); // Remove caracteres não numéricos
-        input.value = input.value.replace(/^(\d{5})(\d{3})$/, '$1-$2'); // Adiciona o hífen no formato 00000-000
-    }
-
-    function buscarCEP() {
-        const cepInput = document.getElementById('cep');
-        const cepValue = cepInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos
-
-        if (cepValue.length !== 8) {
-            alert('Por favor, digite um CEP válido.');
-            return;
+    <script>
+        function formatarCEP(input) {
+            input.value = input.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+            input.value = input.value.replace(/^(\d{5})(\d{3})$/, '$1-$2'); // Adiciona o hífen no formato 00000-000
         }
 
-        const apiUrl = `https://viacep.com.br/ws/${cepValue}/json/`;
+        function buscarCEP() {
+            const cepInput = document.getElementById('cep');
+            const cepValue = cepInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos
 
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                exibirResultado(data);
-            })
-            .catch(error => {
-                alert('Ocorreu um erro ao buscar o CEP. Por favor, tente novamente.');
-            });
-    }
+            if (cepValue.length !== 8) {
+                alert('Por favor, digite um CEP válido.');
+                return;
+            }
 
-    function exibirResultado(data) {
-        const resultDiv = document.getElementById('result');
-        if (data.erro) {
-            resultDiv.innerHTML = '<p class="cep-not-found">CEP não encontrado. Verifique o CEP digitado.</p>';
-        } else {
-            resultDiv.innerHTML = `
-                <h3>Resultado:</h3>
-                <p><strong>CEP:</strong> ${data.cep}</p>
-                <p><strong>Logradouro:</strong> ${data.logradouro}</p>
-                <p><strong>Complemento:</strong> ${data.complemento}</p>
-                <p><strong>Bairro:</strong> ${data.bairro}</p>
-                <p><strong>Localidade:</strong> ${data.localidade}</p>
-                <p><strong>UF:</strong> ${data.uf}</p>
-                <p><strong>IBGE:</strong> ${data.ibge}</p>
-                <p><strong>GIA:</strong> ${data.gia}</p>
-                <p><strong>DDD:</strong> ${data.ddd}</p>
-                <p><strong>SIAFI:</strong> ${data.siafi}</p>
-            `;
+            const apiUrl = `https://viacep.com.br/ws/${cepValue}/json/`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    exibirResultado(data);
+                })
+                .catch(error => {
+                    alert('Ocorreu um erro ao buscar o CEP. Por favor, tente novamente.');
+                });
         }
-    }
 
-    function limparCampos() {
-        const cepInput = document.getElementById('cep');
-        const resultDiv = document.getElementById('result');
+        function exibirResultado(data) {
+            const resultDiv = document.getElementById('result');
+            if (data.erro) {
+                resultDiv.innerHTML = '<p class="cep-not-found">CEP não encontrado. Verifique o CEP digitado.</p>';
+            } else {
+                resultDiv.innerHTML = `
+                    <h3>Resultado:</h3>
+                    <p><strong>CEP:</strong> ${data.cep}</p>
+                    <p><strong>Logradouro:</strong> ${data.logradouro}</p>
+                    <p><strong>Complemento:</strong> ${data.complemento}</p>
+                    <p><strong>Bairro:</strong> ${data.bairro}</p>
+                    <p><strong>Localidade:</strong> ${data.localidade}</p>
+                    <p><strong>UF:</strong> ${data.uf}</p>
+                    <p><strong>IBGE:</strong> ${data.ibge}</p>
+                    <p><strong>GIA:</strong> ${data.gia}</p>
+                    <p><strong>DDD:</strong> ${data.ddd}</p>
+                    <p><strong>SIAFI:</strong> ${data.siafi}</p>
+                `;
+            }
+        }
 
-        cepInput.value = '';
-        resultDiv.innerHTML = '';
-    }
-</script>
+        function limparCampos() {
+            const cepInput = document.getElementById('cep');
+            const resultDiv = document.getElementById('result');
+
+            cepInput.value = '';
+            resultDiv.innerHTML = '';
+        }
+    </script>
 </body>
 
 </html>
