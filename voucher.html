@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <title>TPG - Voucher</title>
+    <style>
+        body {
+            background-color: #343a40;
+            color: #ffffff;
+            margin-bottom: 100px; /* Adicionado para ajustar a posição do botão Voltar */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            margin-top: 4em;
+            text-align: center;
+        }
+
+        .welcome-message {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .voucher-image {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0; /* Adicionado espaço acima e abaixo da imagem */
+            display: none; /* Inicia oculta */
+        }
+
+        .voucher-details {
+            text-align: left;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            border-radius: 10px;
+            display: none; /* Inicia oculta */
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #343a40;
+            color: #ffffff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        .whatsapp-btn {
+            background-color: #25d366;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: none; /* Inicia oculta */
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128c7e;
+        }
+
+        a {
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="welcome-message">
+            <p>Página Inicial</p>
+            <p>Olá, Bruna! Você recebeu um presente de Natal digital de uma pessoa que te ama muito.</p>
+            <p>Clique no botão para ver o voucher.</p>
+        </div>
+
+        <!-- Botão para mostrar mais detalhes -->
+        <button class="btn btn-primary" onclick="mostrarDetalhes()">Clique para ver o voucher</button>
+
+        <!-- Espaço antes da imagem do voucher -->
+        <div style="margin-bottom: 20px;"></div>
+
+        <!-- Detalhes do voucher -->
+        <div class="voucher-details" id="voucherDetails">
+            <p>Este voucher deve ser gasto na</p>
+            <p><strong>Mariza Peruche</strong></p>
+            <p><strong>Saúde/Beleza</strong></p>
+            <p><strong>✨Design de Sobrancelhas</strong></p>
+            <p><strong>✨Micropigmentação</strong></p>
+            <p><strong>Sobrancelhas | Olhos | Lábios</strong></p>
+            <p><strong>✨Limpeza de Pele</strong></p>
+            <p><strong>✨Epilação Corporal e Facial</strong></p>
+            <p>Contato: <strong>18-981459904</strong></p>
+
+            <!-- Imagem do voucher -->
+            <img src="img/voucher.png" alt="Voucher" class="voucher-image" id="voucherImage">
+
+            <!-- Botão do WhatsApp -->
+            <a href="https://api.whatsapp.com/send?phone=5518981459904&text=Olá%20Mariza,%20meu%20nome%20é%20Bruna,%20eu%20Ganhei%20um%20Voucher%20de%20Natal%20de%20150,00%20e%20gostaria%20de%20marcar%20nossas%20sessões."
+                target="_blank" class="whatsapp-btn">Contate pelo WhatsApp</a>
+        </div>
+
+    </div>
+
+    <!-- Adicione scripts JavaScript, se necessário -->
+    <script>
+        function mostrarDetalhes() {
+            // Adicione a lógica para mostrar mais detalhes aqui
+            alert("Parabéns! Você recebeu um presente muito especial.");
+
+            // Mostra os detalhes do voucher
+            document.getElementById('voucherDetails').style.display = 'block';
+            // Mostra a imagem do voucher
+            document.getElementById('voucherImage').style.display = 'block';
+            // Mostra o botão do WhatsApp
+            document.querySelector('.whatsapp-btn').style.display = 'inline-block';
+        }
+    </script>
+
+</body>
+
+</html>
