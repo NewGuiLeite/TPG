@@ -266,7 +266,9 @@ html{
 /* features section starts  */
 
 .features .row{
+    
     display: flex;
+    
     align-items: center;
     flex-wrap: wrap;
     gap: 5rem;
@@ -302,7 +304,48 @@ html{
     color: var(--Grayish-Blue);
     padding-bottom: 4rem;
 }
+
+.features .row .content h2{
+    font-size: 5rem;
+    padding: 1rem 0;
+    color: var(--Very-Dark-Blue);
+}
+
+.features .row .content h3{
+    font-size: 2rem;
+    padding: 1rem 0;
+    color: black;
+    font-weight: normal; 
+}
+
+.features .row .content h4{
+    font-size: 3rem;
+    padding: 1rem 0;
+    color: var(--Very-Dark-Blue);
+   
+}
+
+/* Tornar a imagem responsiva */
+.features .row .image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fazer o texto ter uma largura máxima para facilitar a leitura em telas menores */
+.features .row .content {
+    max-width: 100%;
+}
+
+/* Adicionar margem inferior aos elementos dentro de .content */
+.features .row .content * {
+    margin-bottom: 1rem;
+}
+
+
 /* features section ends */
+
+
+
 
 
 /* downloads section starts  */
