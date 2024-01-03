@@ -367,6 +367,23 @@ html{
     margin-bottom: 1rem;
 }
 
+/*  section faceresponsive */
+
+/* Adicione esta regra de estilo para tornar o iframe responsivo */
+.facepubli iframe {
+    width: 100%;
+    max-width: 500px; /* ou ajuste conforme necessário */
+    height: auto;
+}
+
+/* Adicione esta regra para centralizar o iframe */
+.facepubli {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* ou ajuste conforme necessário */
+}
+
 
 
 /* downloads section starts  */
