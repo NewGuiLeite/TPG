@@ -345,6 +345,27 @@ html{
 /* features section ends */
 
 
+/* Tornar a imagem responsiva */
+.features .row .image img,
+.download .box img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fazer o texto ter uma largura máxima para facilitar a leitura em telas menores */
+.features .row .content,
+.download .box {
+    max-width: 100%;
+}
+
+/* Adicionar margem inferior aos elementos dentro de .content e .box */
+.features .row .content * {
+    margin-bottom: 1rem;
+}
+
+.download .box * {
+    margin-bottom: 1rem;
+}
 
 
 
