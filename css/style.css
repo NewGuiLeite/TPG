@@ -325,11 +325,7 @@ html{
    
 }
 
-/* Tornar a imagem responsiva */
-.features .row .image img {
-    max-width: 100%;
-    height: auto;
-}
+
 
 /* Fazer o texto ter uma largura máxima para facilitar a leitura em telas menores */
 .features .row .content {
@@ -475,3 +471,4 @@ html{
 
 
 /* footer section ends */
+
