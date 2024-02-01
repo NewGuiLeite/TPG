@@ -64,7 +64,7 @@ html{
     font-size: 1.5rem;
     background-color: var(--Soft-Blue);
     border-radius: .5rem;
-    color: #fff;
+    color: #000000;
 }
 
 .all-btn:hover{
@@ -75,13 +75,15 @@ html{
 
 
 :root{
-    --Soft-Blue: hsl(231, 69%, 60%);
-    --Soft-Red: hsl(0, 94%, 66%);
+    --Soft-Blue: #f9bf00;
+    --Soft-Red: #f9bf00;
     --Grayish-Blue: hsl(229, 8%, 60%);
     --Very-Dark-Blue: hsl(229, 31%, 21%);
-    --box-shadow: .5rem .5rem  0 hsl(231, 69%, 60%);
+    --box-shadow: .5rem .5rem  0 #f4d56e;
     --text-shadow: .4rem .4rem  0 rgba(0, 0, 0, .2);
     --border: .2rem  solid var(--green);
+
+   
 }
 
 
@@ -121,7 +123,7 @@ html{
 .header .navbar .btn{
     padding: .6rem 3rem;
     background-color: var(--Soft-Red);
-    color: #fff;
+    color: #000000;
     border-radius: .5rem;
 }
 
@@ -142,11 +144,7 @@ html{
 }
 
 
-
 /* Media Queries */
-
-
-
 
 @media (max-width: 991px){
     html{
@@ -244,7 +242,7 @@ html{
     background-color: #fff;
     color: #000;
     font-size: 1.4rem;
-    box-shadow: .5rem .5rem hsl(231, 69%, 60%);
+    box-shadow: .5rem .5rem hsl(55, 98%, 61%);
     border: 2px solid var(--Soft-Blue);
     border-radius: .5rem;
 }
@@ -256,129 +254,191 @@ html{
     color: #fff;
 }
 
-
-
-
 /* home section ends */
 
 
-
-/* features section starts  */
-
-.features .row{
-    
+/* Estilos para o contêiner de cada linha de recurso */
+.features .row {
     display: flex;
-    
     align-items: center;
     flex-wrap: wrap;
     gap: 5rem;
     margin: 3rem 0;
 }
 
-.features .row .image{
+/* Estilos para a coluna de imagem dentro de cada linha de recurso */
+.features .row .image {
     flex: 1 1 45rem;
 }
 
-
-.features .row .image img{
+/* Estilos para a imagem dentro da coluna de imagem */
+.features .row .image img {
     width: 100%;
+    max-width: 100%;
+    height: auto;
 }
 
-
-
-.features .row .content{
+/* Estilos para o conteúdo dentro de cada linha de recurso */
+.features .row .content {
     flex: 1 1 45rem;
-}
-
-
-.features .row .content h1{
-    font-size: 4rem;
-    padding: 1rem 0;
-    color: var(--Very-Dark-Blue);
-}
-
-
-.features .row .content p{
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     padding: 1rem 0;
     color: #000;
     padding-bottom: 4rem;
 }
 
-.features .row .content h2{
-    font-size: 5rem;
+/* Adicione esta regra de mídia ao final do seu CSS */
+@media (max-width: 768px) {
+    .features .row .content h1 {
+        margin-top: -6rem;
+    }
+}
+
+/* Estilos específicos para as linhas pares (segunda, quarta, sexta, etc.) */
+.features .row:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Estilos para o título (h1) dentro do conteúdo */
+.features .row .content h1 {
+    font-size: 4rem;
     padding: 1rem 0;
     color: var(--Very-Dark-Blue);
 }
 
-.features .row .content h3{
-    font-size: 2rem;
-    padding: 1rem 0;
-    color: black;
-    font-weight: normal; 
+/* Outros estilos... */
+
+/* Estilos para o parágrafo (p) dentro do conteúdo */
+.features .row .content p {
+    font-size: 1.8rem; /* Tamanho da fonte */
+    padding: 30rem 20; /* Preenchimento superior e inferior */
+    color: #000; /* Cor do texto */
+    padding-bottom: 4rem; /* Preenchimento inferior adicional */
 }
 
-.features .row .content h4{
-    font-size: 3rem;
-    padding: 1rem 0;
-    color: var(--Very-Dark-Blue);
+/* Estilos para o subtítulo (h2) dentro do conteúdo */
+.features .row .content h2 {
+    font-size: 5rem; /* Tamanho da fonte */
+    padding: 1rem 0; /* Preenchimento superior e inferior */
+    color: var(--Very-Dark-Blue); /* Cor do texto */
+}
+
+/* Estilos para o subtítulo (h3) dentro do conteúdo */
+.features .row .content h3 {
+    font-size: 2rem; /* Tamanho da fonte */
+    padding: 1rem 0; /* Preenchimento superior e inferior */
+    color: black; /* Cor do texto */
+    font-weight: normal; /* Peso normal da fonte */
+}
+
+/* Estilos para o subtítulo (h4) dentro do conteúdo */
+.features .row .content h4 {
+    font-size: 3rem; /* Tamanho da fonte */
+    padding: 1rem 0; /* Preenchimento superior e inferior */
+    color: var(--Very-Dark-Blue); /* Cor do texto */
+}
+
+/* Fim da seção de características */
+
+
+
+/* blog section starts */
+
+.blog {
+    padding: 120px 20px 20px; /* Adicionando espaço superior à seção de blog */
+    text-align: center;
+    position: relative; /* Adicionando posição relativa para controlar z-index */
+    z-index: 1; /* Ajustando o z-index para garantir que a seção de blog fique sobreposta */
+    
    
 }
 
-
-
-/* Fazer o texto ter uma largura máxima para facilitar a leitura em telas menores */
-.features .row .content {
-    max-width: 100%;
+.blog h1 {
+    font-size: 2.9rem;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-/* Adicionar margem inferior aos elementos dentro de .content */
-.features .row .content * {
-    margin-bottom: 1rem;
+.blog h2 {
+    font-size: 1.9rem;
+    color: #444;
+    margin-top: 10px;
+}
+
+.blog h3 {
+    font-size: 1.5rem;
+    color: #444;
+    margin-top: 10px;
 }
 
 
-/* features section ends */
-
-
-/* Tornar a imagem responsiva */
-.features .row .image img,
-.download .box img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Fazer o texto ter uma largura máxima para facilitar a leitura em telas menores */
-.features .row .content,
-.download .box {
-    max-width: 100%;
-}
-
-/* Adicionar margem inferior aos elementos dentro de .content e .box */
-.features .row .content * {
-    margin-bottom: 1rem;
-}
-
-.download .box * {
-    margin-bottom: 1rem;
-}
-
-/*  section faceresponsive */
-
-/* Adicione esta regra de estilo para tornar o iframe responsivo */
-.facepubli iframe {
-    width: 100%;
-    max-width: 500px; /* ou ajuste conforme necessário */
-    height: auto;
-}
-
-/* Adicione esta regra para centralizar o iframe */
-.facepubli {
+.blog-posts {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px; /* ou ajuste conforme necessário */
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
 }
+
+.blog-post {
+    width: 100%;
+    max-width: 900px;  /* Aumentando a largura da postagem */
+    margin-bottom: 20px;
+    border: 1px solid #f4d56e;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+.blog-post img {
+    width: 70%; /* Aumentando a largura da postagem */
+    height: auto;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    
+}
+
+.blog-post header {
+    padding: 20px;
+    
+}
+
+.blog-post h2 {
+    font-size: 2.8rem;
+    color: #444;
+    margin-top: 10px;
+    
+}
+
+.blog-post h3 {
+    font-size: 2.5rem;
+    color: #444;
+    margin-top: 10px;
+    
+}
+
+
+.blog-post p {
+    font-size: 2.0rem; /* Ajuste o tamanho da fonte conforme necessário */
+    color: #0e0d0d;
+    margin-top: 10px;
+    
+}
+
+
+.blog-post .recipe-instructions {
+    font-size: 2.0rem; /* Ajuste o tamanho da fonte conforme necessário */
+    color: #030303;
+    margin-top: 10px;
+}
+
+.blog-post .recipe-details {
+    font-size: 2.0rem; /* Ajuste o tamanho da fonte conforme necessário */
+    color: #000000;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
 
 
 
@@ -398,7 +458,20 @@ html{
     border-radius: .5rem;
     text-align: center;
     padding: 2.5rem;
+    
 }
+
+.download .box img {
+    max-width: 100%;
+    height: auto;
+}
+
+.download .heading {
+    margin-bottom: 1rem; /* ou ajuste conforme necessário pra cima pra baixo o texto */
+}
+
+
+
 .download .box:hover{
     border: 2px solid var(--Soft-Blue);
     box-shadow: none;
@@ -409,6 +482,7 @@ html{
     font-size: 2rem;
     padding: 1rem 0;
     color: var(--Very-Dark-Blue);
+    letter-spacing: 1px; /* ou ajuste conforme necessário */
 }
 
 
@@ -471,4 +545,187 @@ html{
 
 
 /* footer section ends */
+
+
+
+
+/* cookie section ends */
+
+#cookie-banner {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#cookie-banner p {
+    margin: 0;
+}
+
+#cookie-banner button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+/* cookie section ends */
+
+
+/* Espaçamento entre as seções */
+.espaco {
+    margin-bottom: 10px;
+}
+
+
+/* Estilo para a seção "sobre" */
+.sobre {
+    text-align: center;
+    padding: 20px;
+    padding: 110px 20px 20px; /* Adicionando espaço superior à seção de blog */
+    position: relative; /* Adicionando posição relativa para controlar z-index */
+    z-index: 1; /* Ajustando o z-index para garantir que a seção de blog fique sobreposta */
+}
+
+/* Estilo para o título "Receitas Bem Estar" */
+.sobre h1 {
+    font-size: 36px;
+    color: #333; /* Cor do texto */
+}
+
+/* Estilo para o espaço entre o título e o conteúdo */
+.sobre .espaco {
+    height: 20px;
+}
+
+/* Estilo para o conteúdo da seção "Sobre Nós" */
+.sobre .conteudo {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px;
+    border: 1px solid #f4d56e;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 10px; /* Espaçamento interno para o contorno */
+}
+
+/* Estilo para o título "Sobre Nós" */
+.sobre .conteudo h1 {
+    font-size: 24px;
+    color: #333; /* Cor do texto */
+}
+
+.sobre .conteudo h2 {
+    font-size: 24px;
+    color: #333; /* Cor do texto */
+    text-align: center; /* Centralizar o texto */
+    margin-top: 10px; /* Adicionar margem superior para espaçamento */
+}
+
+
+/* Estilo para o espaço entre o título e o texto */
+.sobre .conteudo .espaco {
+    height: 10px;
+}
+
+/* Estilo para o parágrafo no conteúdo */
+.sobre .conteudo p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666; /* Cor do texto */
+}
+
+.sobre .box {
+    display: flex;
+    justify-content: center;
+}
+
+.sobre .btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    background-color: var(--Soft-Blue);
+    border-radius: .5rem;
+    color: #000000;
+}
+
+.sobre .btn:hover {
+    background-color: transparent;
+    color: var(--Soft-Blue);
+    border: 2px solid var(--Soft-Blue);
+    text-decoration: none;
+}
+
+/* Ajuste no estilo para a seção "download" */
+#download {
+    margin-top: -100px; /* Adicionando mais espaço superior à seção "download" */
+}
+
+/* Estilo para o container da seção "Sobre Nós" */
+.sobre .conteudo .container {
+    margin-top: 20px;
+}
+
+
+
+/* Estilos para o formulário */
+.form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  
+  /* Estilos PARA O ADS ANUNCIO*/
+  .content-container {
+    text-align: center;
+    width: 100%;
+  }
+
+ 
 
