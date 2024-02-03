@@ -7,7 +7,7 @@
     box-sizing: border-box;
     outline: none;
     border: none;
-    text-transform: capitalize;
+ 
     transition: 0.2s ease-in-out;
     color: #000;
     text-decoration: none;
@@ -75,11 +75,11 @@ html{
 
 
 :root{
-    --Soft-Blue: #f9bf00;
-    --Soft-Red: #f9bf00;
+    --Soft-Blue: #00c652;
+    --Soft-Red: #06a944;
     --Grayish-Blue: hsl(229, 8%, 60%);
     --Very-Dark-Blue: hsl(229, 31%, 21%);
-    --box-shadow: .5rem .5rem  0 #f4d56e;
+    --box-shadow: .5rem .5rem  0 #6ae314;
     --text-shadow: .4rem .4rem  0 rgba(0, 0, 0, .2);
     --border: .2rem  solid var(--green);
 
@@ -242,7 +242,7 @@ html{
     background-color: #fff;
     color: #000;
     font-size: 1.4rem;
-    box-shadow: .5rem .5rem hsl(55, 98%, 61%);
+    box-shadow: .5rem .5rem hsl(130, 100%, 84%);
     border: 2px solid var(--Soft-Blue);
     border-radius: .5rem;
 }
@@ -349,9 +349,8 @@ html{
     text-align: center;
     position: relative; /* Adicionando posição relativa para controlar z-index */
     z-index: 1; /* Ajustando o z-index para garantir que a seção de blog fique sobreposta */
-    
-   
 }
+
 
 .blog h1 {
     font-size: 2.9rem;
@@ -381,9 +380,9 @@ html{
 
 .blog-post {
     width: 100%;
-    max-width: 900px;  /* Aumentando a largura da postagem */
+    max-width: 1500px;  /* Aumentando a largura da postagem */
     margin-bottom: 20px;
-    border: 1px solid #f4d56e;
+    border: 1px solid #06a944;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -391,11 +390,17 @@ html{
 }
 
 .blog-post img {
-    width: 70%; /* Aumentando a largura da postagem */
+    width: 50%; /* Aumentando a largura da postagem */
     height: auto;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     
+}
+
+.blog-post .content {
+    width: 50%; /* Ajuste a largura conforme necessário */
+    padding: 20px;
+    box-sizing: border-box; /* Evita que o padding afete a largura total */
 }
 
 .blog-post header {
