@@ -734,3 +734,84 @@ html{
 
  
 
+/* MAIN */
+
+#main {
+    display: flex;
+    min-height: 80vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    border: 1px solid #06a944;
+
+    
+}
+
+#main h3 {
+    font-size: 15pt;
+    font-weight: 700;
+    color: #5c9199;
+}
+
+#main a {
+    color: #0f0f0f;
+}
+
+#main h2 {
+    font-size: 25pt;
+    color: #0f0f0f;
+    font-weight: 700;
+}
+#produtos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 10px;
+    justify-content: space-around;
+}
+
+.cel {
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #0f0f0f;
+    text-align: center;
+}
+
+.cel img {
+    max-width: 100%; /* Ajusta o tamanho da imagem para não ultrapassar o contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+/* Adaptação para telas menores (por exemplo, abaixo de 768px) */
+@media (max-width: 768px) {
+    #produtos-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+
+.cel {
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #0f0f0f;
+    text-align: center;
+}
+
+
+.preco {
+    color: #5c9199;
+    font-weight: 900;
+}
+
+button {
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    border: 2px solid #5c9199;
+}
+
+button:hover {
+    animation: fa-bounce 1s;
+}
