@@ -747,6 +747,16 @@ html{
     
 }
 
+#main img {
+    width: 50%; /* Aumentando a largura da postagem */
+    height: auto;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block; /* Isso ajuda a garantir que as margens automáticas funcionem corretamente */
+}
+
 #main h3 {
     font-size: 15pt;
     font-weight: 700;
@@ -755,6 +765,12 @@ html{
 
 #main a {
     color: #0f0f0f;
+}
+
+#main p {
+    color:#0f0f0f;
+    font-weight: 900;
+    font-size: 1.2em; /* Ajuste o valor conforme necessário */
 }
 
 #main h2 {
@@ -802,7 +818,14 @@ html{
 .preco {
     color: #5c9199;
     font-weight: 900;
+    font-size: 1.5em; /* Ajuste o valor conforme necessário */
 }
+
+.preco::before {
+    content: "EAN ";
+}
+
+
 
 button {
     cursor: pointer;
@@ -815,3 +838,4 @@ button {
 button:hover {
     animation: fa-bounce 1s;
 }
+
