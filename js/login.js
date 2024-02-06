@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Verifique as credenciais
         if (usuario === 'info' && senha === 'info') {
             // Redirecione para info.html se as credenciais estiverem corretas
-            window.location.href = 'info.html';
+            window.location.href = '127684912894712897wshgdufihauisfbuyasbvuybasyuvbuybcabsclknlkn.html';
         } else {
             // Exiba uma mensagem de erro (substitua ou adicione conforme necessário)
             alert('Credenciais inválidas. Tente novamente.');
