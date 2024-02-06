@@ -839,3 +839,9 @@ button:hover {
     animation: fa-bounce 1s;
 }
 
+
+
+
+.link:visited {
+    color: #03f830; /* Altere para a cor desejada */
+}
