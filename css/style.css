@@ -839,3 +839,12 @@ button:hover {
     animation: fa-bounce 1s;
 }
 
+
+/* Estilizando os links */
+a {
+    color: var(--Soft-Blue); /* Definindo a cor padrão para os links */
+}
+
+a:hover {
+    color: var(--Soft-Red); /* Mudando a cor ao passar o mouse sobre os links */
+}
