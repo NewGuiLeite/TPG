@@ -722,7 +722,7 @@ html{
   }
   
   button:hover {
-    background-color: #45a049;
+    background-color: #ffffff;
   }
   
   
@@ -764,11 +764,11 @@ html{
 }
 
 #main a {
-    color: #03f830;
+    color: #000000;
 }
 
 #main p {
-    color:#0f0f0f;
+    color:#2ba319;
     font-weight: 900;
     font-size: 1.2em; /* Ajuste o valor conforme necessário */
 }
@@ -833,26 +833,19 @@ button {
     border-radius: 5px;
     padding: 5px;
     border: 2px solid #5c9199;
+    font-weight: bold;
+ 
 }
 
 button:hover {
     animation: fa-bounce 1s;
 }
 
-
-<<<<<<< HEAD
 /* Estilizando os links */
 a {
-    color: var(--Soft-Blue); /* Definindo a cor padrão para os links */
+    color: #0fa12e;
 }
 
 a:hover {
     color: var(--Soft-Red); /* Mudando a cor ao passar o mouse sobre os links */
 }
-=======
-
-
-.link:visited {
-    color: #03f830; /* Altere para a cor desejada */
-}
->>>>>>> ecbcf8a89aa92121c10ceefa146842a842ff6f87
