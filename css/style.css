@@ -618,7 +618,7 @@ html{
     width: 100%;
     max-width: 800px;
     margin-bottom: 20px;
-    border: 1px solid #f4d56e;
+    border: 1px solid #4caf50;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -840,6 +840,7 @@ button:hover {
 }
 
 
+<<<<<<< HEAD
 /* Estilizando os links */
 a {
     color: var(--Soft-Blue); /* Definindo a cor padrão para os links */
@@ -848,3 +849,10 @@ a {
 a:hover {
     color: var(--Soft-Red); /* Mudando a cor ao passar o mouse sobre os links */
 }
+=======
+
+
+.link:visited {
+    color: #03f830; /* Altere para a cor desejada */
+}
+>>>>>>> ecbcf8a89aa92121c10ceefa146842a842ff6f87
